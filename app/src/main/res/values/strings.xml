@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SyndicateHack</string>
+
+    <string-array name="Services">
+        <item>Create An Account</item>
+        <item>Withdraw</item>
+        <item>Demand Draft</item>
+        <item>deposit</item>
+
+    </string-array>
+
+
+</resources>
