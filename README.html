@@ -1,0 +1,88 @@
+<html>
+
+<h2 style="text-align: center;">Directions to use</h2>
+<div>
+        <a  href="#app">I.   Guidance for App</a><br/>
+        <a  href="#api">II.  Guidance for Web API</a><br/>
+        <a href="#hardware">III. Guidance For Hardware</a><br/>
+        <a  href="#web">IV. Guidance for Bankers Webpage</a><br/>
+        <a  href="#further">V.  Further Implementations before onsite hackathon</a><br/>
+
+</div>
+
+
+<div>
+    <div id="app">
+        <h3>Guidance for App</h3>
+
+        <ol>
+            <li>Install the Apk file</li>
+            <li>click the book visit button in the interface</li>
+            <li>The alarm button(float button) is used to create an alarm for the visit time</li>
+            <li>Once you click the book visit you will get the book your visit intent</li>
+            <li>Type the name phone number and email id</li>
+            <li>Select your required service <strong>(only a few listed)</strong></li>
+            <li>Select the date and time and then clicck the book button
+    <strong>(validation for the fields is not done it would be done before the onsite hackathon)</strong></li>
+            <li>Once you click the book button a qr code will be generated
+                <strong>(scan the qr code when you reach the bank)</strong></li>
+
+        </ol>
+    </div>
+    
+    <div id="api">
+        <h3>Guidance for web API</h3>
+
+        <ol>
+                <li>index.php:<br/>
+                    Once the user registers in the app, the details are pushed to database (table name: details) and the token number is sent as response to the app to generate 
+                        qr code.</li>
+                <li>custbank.php:<br/>
+                        The qr code will be scanned in the bank using raspberry pi. The scanned token number will be sent to custbank.php in json format , and pushed to database
+                        with the details about the counter number, token number and time_in will be put inside the database (table name: current).</li>
+                    
+            </ol>
+    </div>
+
+    <div id="hardware">
+        <h3>Guidance for Hardware - <strong>Demonstration is in demo video</strong></h3>
+        
+        <ol>
+            
+            <li>Scan the generated QR code from the app</li>
+            <li>The Token number in the code is sent to a web API and thus updated in the database, stating that the user has entered the bank</li>
+            <li>QR code cannot be scanned before the time selected by the user while registration</li><br/>
+            
+
+        </ol>
+    </div>
+    <div id="web">
+        <h3>Guidance for Bankers Webpage</h3>
+
+        <ol>
+                <li>Open <a href="http://akashsachithanandham.000webhostapp.com/syndicate_bank/current.php" target="blank">current.php</a></li>
+                <li>Select the counter and click submit</li>
+                <li>Page will be redirected to <strong>history.php with some query strings</strong></li>
+                <li>The current user is displayed in the webpage</li>
+                <li>If the end button is clicked, The user exits the counter and next person in the counter is automatically displayed</li>
+                <li>In Backend: The person is deleted from Table name:Current and pushed to Table:History, for bank's reference and to predict the time for that counter</li>
+                <li>Timeout is also pushed to the Table: History</li>
+            </ol>
+    </div>
+    
+    <div id="further">
+        <h3>Further Implementations before onsite hackathon</h3>
+
+        <ol>
+            <li>Adding queue status which could be checked by the user 1hr before his booking time,he could thus check whether he could alter his vist time if the queue is long;</li>
+            <li>A feature to predict the amount of time required for a user to complete using data of previous users in that counter and display the predicted time to the users yet to come </li>
+            
+
+        </ol>
+    </div>
+
+</div>
+
+</html>
+
+
